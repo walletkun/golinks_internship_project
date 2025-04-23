@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🕵️‍♂️ Guessdle
 
-## Getting Started
+A Wordle-inspired minigame built with **Next.js** and hosted on **Vercel**.
 
-First, run the development server:
+> Originally designed as an online assessment challenge by [@golinks](https://www.golinks.com/) — big thanks to them for the fun inspiration!
+---
+
+## 🚀 Live Demo
+
+No signup required! Just head to the live version:
+[https://your-vercel-deployment-url.vercel.app](https://your-vercel-deployment-url.vercel.app)
+Want to make your own tweaks or deploy your version? Feel free to fork or clone the repo — it's MIT licensed.
+
+---
+
+## 🛠️ Getting Started
+
+To run this project locally:
 
 ```bash
+git clone https://github.com/yourusername/wordle-leaderboard.git
+
+cd wordle-leaderboard
+
+npm install
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open your browser at http://localhost:3000
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+This project uses:
+- Next.js App Router
+- Supabase for backend leaderboard storage
+- Tailwind CSS for styling
+- Deployed with Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+# 📦 Deployment
+The easiest way to deploy this app is to use Vercel. It supports Next.js out of the box.
+You can also self-host using your preferred deployment method.
 
-To learn more about Next.js, take a look at the following resources:
+---
+# 🙌 Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+PRs are welcome!
+If you have ideas or improvements you’d like to add, feel free to submit a pull request. I’ll review and merge changes if they’re feasible and aligned with the project.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+# 📄 License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+MIT — feel free to use, fork, modify, or contribute back.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+# 📫 Acknowledgments
+- Inspired by Wordle
+- Based on an online assessment from @GoLinks
+
+---
+
+
+
+
+

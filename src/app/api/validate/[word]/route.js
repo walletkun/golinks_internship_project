@@ -16,6 +16,7 @@ export async function GET(request, { params }) {
     const response = await axios.get(
       `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
     );
+
     console.log("Validation response:", response.data);
     // Word does exist
     return NextResponse.json({ valid: true });

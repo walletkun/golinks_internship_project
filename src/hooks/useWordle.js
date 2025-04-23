@@ -21,23 +21,40 @@ export const useWordle = (initialSolution = null) => {
     const [loading, setLoading] = useState(!initialSolution);
     const [solution, setSolution] = useState(initialSolution);
 
+
+    async function getWord(){
+        try{
+        const response = await axios.get("/api/word");
+        return response.data.word;
+        }
+        catch(error){
+            console.log("Why");
+            return "react";
+        }
+    }
     // Side effect, where we fetch a random word from our api
     useEffect(() => {
-        if(!initialSolution){
-            setLoading(true);
-            axios.get("/api/word").then(response => 
-                {
-                    setSolution(response.data.word);
-                    setLoading(false);
-                })
-                .catch(error => {
-                    // Fallback if it fails fetching anyword
-                    console.error("Error fetching word:", error);
-                    setSolution("golink");
-                    setLoading(false);
-                })
+        const fetchValid = async () => {
+            if(!initialSolution){
+                setLoading(true);
+                let isValid = false;
+                let word;
+
+                while(!isValid){
+                    word = await getWord();
+                    isValid = await isValidWord(word);
+                }
+                console.log(word, isValidWord(word));
+                setSolution(word);
+                setLoading(false);
+            }
         }
+
+        fetchValid();
     }, [initialSolution]);
+
+
+
 
     // Validating the word
     const isValidWord = async (word) => {
@@ -168,6 +185,31 @@ export const useWordle = (initialSolution = null) => {
 
         }
     , [currentGuess, turn, isGameOver, solution]);
+
+
+    const resetGames = useCallback(() => {
+        setTurn(0);
+        setCurrentGuess("");
+        setGuesses([...Array(6)].map(() => ""));
+        setHistory([]);
+        setIsGameOver(false);
+        setIsWon(false);
+        setError(null);
+
+
+        // Fetch a new word
+        setLoading(true);
+        axios.get('/api/word')
+        .then(response => {
+            setSolution(response.data.word);
+            setLoading(false);
+        })
+        .catch(error => {
+             console.error("Error fetching word:", error);
+             setSolution("golink"); // Fall back solution if fetching the word fails
+             setLoading(false);
+        })
+    }, []);
     
 
     return {
@@ -182,5 +224,6 @@ export const useWordle = (initialSolution = null) => {
       solution: isGameOver ? solution : null,
       loading,
       handleKeyInput,
+      resetGames,
     };
 }
