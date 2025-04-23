@@ -44,7 +44,6 @@ export const useWordle = (initialSolution = null) => {
                     word = await getWord();
                     isValid = await isValidWord(word);
                 }
-                console.log(word, isValidWord(word));
                 setSolution(word);
                 setLoading(false);
             }
