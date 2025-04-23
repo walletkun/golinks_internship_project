@@ -10,7 +10,7 @@ export default function LeaderboardPage() {
       <div className="w-full max-w-4xl">
         <div className="flex flex-col sm:flex-row justify-between items-center mb-8 border-b border-gray-200 pb-4">
           <h1 className="text-3xl font-bold tracking-wide uppercase text-gray-800 text-center sm:text-left mb-4 sm:mb-0">
-            Wordle Leaderboard
+            Guessdle Leaderboard
           </h1>
           <Link
             href="/"

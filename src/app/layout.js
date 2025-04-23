@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Guessdle",
   description: "Guess like you would guess on wordle",
-  metadataBase: new URL("https://your-vercel-site-url.vercel.app"),
+  metadataBase: new URL("https://guessdle.vercel.app/"),
   openGraph: {
     title: "Guessdle",
     description:
@@ -23,7 +23,7 @@ export const metadata = {
     siteName: "Guessdle",
     images: [
       {
-        url: "/guessicon.png",
+        url: "https://guessdle.vercel.app/guessdlesc.png",
         width: 1200,
         height: 630,
         alt: "Guessdle preview image",
