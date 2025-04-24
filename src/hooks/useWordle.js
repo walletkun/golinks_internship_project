@@ -21,6 +21,11 @@ export const useWordle = (initialSolution = null) => {
   const [loading, setLoading] = useState(!initialSolution);
   const [solution, setSolution] = useState(initialSolution);
 
+  // Function to validate it only contains alphabetical characters
+  const containsOnlyLetters = (word) => {
+    return /^[a-zA-Z]+$/.test(word);
+  };
+
   async function getWord() {
     try {
       const response = await axios.get("/api/word");
@@ -36,12 +41,13 @@ export const useWordle = (initialSolution = null) => {
       if (!initialSolution) {
         setLoading(true);
         let isValid = false;
+        let isValidFormat = false;
         let word;
 
-        while (!isValid) {
+        while (!isValid || !isValidFormat) {
           word = await getWord();
           isValid = await isValidWord(word);
-
+          isValidFormat = containsOnlyLetters(word);
         }
         setSolution(word);
         setLoading(false);
@@ -194,12 +200,13 @@ export const useWordle = (initialSolution = null) => {
       if (!initialSolution) {
         setLoading(true);
         let isValid = false;
+        let isValidFormat = false;
         let word;
 
-        while (!isValid) {
+        while (!isValid || !isValidFormat) {
           word = await getWord();
           isValid = await isValidWord(word);
-
+          isValidFormat = containsOnlyLetters(word);
         }
         setSolution(word);
         setLoading(false);
