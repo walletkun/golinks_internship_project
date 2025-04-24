@@ -18,7 +18,7 @@ export const metadata = {
   openGraph: {
     title: "Guessdle",
     description:
-      "Wordle-style guessing game with a public leaderboard. No login required.",
+      "Guess like you would guess on wordle. But you got a leaderboard, coolio.",
     url: "https://guessdle.vercel.app",
     siteName: "Guessdle",
     images: [
